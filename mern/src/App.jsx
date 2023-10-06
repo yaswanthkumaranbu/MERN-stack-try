@@ -14,7 +14,7 @@ function App() {
       .then((req, res) => {
        // alert("Task added");
         setTask("");
-    ShowTask()
+  //  ShowTask()
 
       })
       .catch((error) => {
@@ -53,7 +53,7 @@ setTask(x.data.text);    } catch (err) {
 
   const DeleteTask = async (id)=>{
    await axios.delete(`${uri}/tasks/delete/${id}`)
-    ShowTask()
+  //  ShowTask()
 
   }
 
@@ -63,7 +63,7 @@ setTask(x.data.text);    } catch (err) {
     setIsUpdate(false)
 
    setTask("");
-   ShowTask()
+   // ShowTask()
 
   }
 
