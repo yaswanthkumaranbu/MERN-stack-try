@@ -27,7 +27,7 @@ function App() {
       const x = await axios.get(uri+"/tasks/get");
 
       setTaskList(x.data);
-      console.log("Fetched");
+    //  console.log("Fetched");
       // return
     } catch (err) {
       console.error(err);
