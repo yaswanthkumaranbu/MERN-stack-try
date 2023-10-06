@@ -38,7 +38,7 @@ function App() {
   useEffect(() => {
     
     ShowTask();
-  }, []);
+  }, [taskList]);
 
   const GetTask = async (id) => {
     try {
