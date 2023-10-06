@@ -7,12 +7,15 @@ function App() {
   const [taskList, setTaskList] = useState([{ text: "No Task" }]);
   const [isUpdate,setIsUpdate]=useState(false);
   const [id,setid]=useState(0);
+  // const uri = "https://mern-yash.onrender.com"
   const AddTask = async () => {
     await axios
-      .post("http://localhost:5000/tasks/post", { text: task })
+      .post(BACK_END+"/tasks/post", { text: task })
       .then((req, res) => {
         alert("Task added");
         setTask("");
+    ShowTask()
+
       })
       .catch((error) => {
         console.error(error);
@@ -21,7 +24,7 @@ function App() {
  
   const ShowTask = async () => {
     try {
-      const x = await axios.get("http://localhost:5000/tasks/get");
+      const x = await axios.get(BACK_END+"/tasks/get");
 
       setTaskList(x.data);
       console.log("Fetched");
@@ -39,7 +42,7 @@ function App() {
 
   const GetTask = async (id) => {
     try {
-      const x = await axios.get("http://localhost:5000/tasks/get/"+id);
+      const x = await axios.get(BACK_END+"/tasks/get/"+id);
       setIsUpdate(true)
       setid(id);
 
@@ -49,7 +52,7 @@ setTask(x.data.text);    } catch (err) {
   };
 
   const DeleteTask = async (id)=>{
-   await axios.delete(`http://localhost:5000/tasks/delete/${id}`)
+   await axios.delete(`${BACK_END}/tasks/delete/${id}`)
     ShowTask()
 
   }
