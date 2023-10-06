@@ -12,7 +12,7 @@ function App() {
     await axios
       .post(uri+"/tasks/post", { text: task })
       .then((req, res) => {
-        alert("Task added");
+       // alert("Task added");
         setTask("");
     ShowTask()
 
@@ -58,7 +58,7 @@ setTask(x.data.text);    } catch (err) {
   }
 
   const UpdateTask = async (id)=>{
-    alert("Updated")
+   // alert("Updated")
     await axios.put(`${uri}/tasks/put/${id}`,{text:task})
     setIsUpdate(false)
 
