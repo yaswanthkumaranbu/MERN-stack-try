@@ -7,10 +7,10 @@ function App() {
   const [taskList, setTaskList] = useState([{ text: "No Task" }]);
   const [isUpdate,setIsUpdate]=useState(false);
   const [id,setid]=useState(0);
-  // const uri = "https://mern-yash.onrender.com"
+  const uri = "https://mern-yash.onrender.com"
   const AddTask = async () => {
     await axios
-      .post(BACK_END+"/tasks/post", { text: task })
+      .post(uri+"/tasks/post", { text: task })
       .then((req, res) => {
         alert("Task added");
         setTask("");
@@ -24,7 +24,7 @@ function App() {
  
   const ShowTask = async () => {
     try {
-      const x = await axios.get(BACK_END+"/tasks/get");
+      const x = await axios.get(uri+"/tasks/get");
 
       setTaskList(x.data);
       console.log("Fetched");
@@ -42,7 +42,7 @@ function App() {
 
   const GetTask = async (id) => {
     try {
-      const x = await axios.get(BACK_END+"/tasks/get/"+id);
+      const x = await axios.get(uri+"/tasks/get/"+id);
       setIsUpdate(true)
       setid(id);
 
@@ -52,14 +52,14 @@ setTask(x.data.text);    } catch (err) {
   };
 
   const DeleteTask = async (id)=>{
-   await axios.delete(`${BACK_END}/tasks/delete/${id}`)
+   await axios.delete(`${uri}/tasks/delete/${id}`)
     ShowTask()
 
   }
 
   const UpdateTask = async (id)=>{
     alert("Updated")
-    await axios.put(`${BACK_END}/tasks/put/${id}`,{text:task})
+    await axios.put(`${uri}/tasks/put/${id}`,{text:task})
     setIsUpdate(false)
 
    setTask("");
