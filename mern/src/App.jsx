@@ -59,7 +59,7 @@ setTask(x.data.text);    } catch (err) {
 
   const UpdateTask = async (id)=>{
     alert("Updated")
-    await axios.put(`http://localhost:5000/tasks/put/${id}`,{text:task})
+    await axios.put(`${BACK_END}/tasks/put/${id}`,{text:task})
     setIsUpdate(false)
 
    setTask("");
